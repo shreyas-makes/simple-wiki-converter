@@ -35,15 +35,18 @@ module SimpleWikiConverter
   end
 end
 
-def main
-  if ARGV.empty?
-    puts "Usage: simple_wiki_converter URL"
-    exit
+
+if __FILE__ == $0
+  def main
+    if ARGV.empty?
+      puts "Usage: simple_wiki_converter URL"
+      exit
+    end
+
+    url = ARGV[0]
+    scraper = SimpleWikiConverter::WikiScraper.new(url)
+    puts scraper.scrape
   end
 
-  url = ARGV[0]
-  scraper = SimpleWikiConverter::WikiScraper.new(url)  # Updated to match the class name
-  puts scraper.scrape
+  main
 end
-
-main  # Invoking the main method
