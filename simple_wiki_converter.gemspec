@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative "lib/simple_wiki_converter/version"
+require 'open-uri'
+require 'nokogiri'
 
 Gem::Specification.new do |spec|
   spec.name = "simple_wiki_converter"
@@ -8,17 +10,13 @@ Gem::Specification.new do |spec|
   spec.authors = ["Shreyas"]
   spec.email = ["shreyas314159@gmail.com"]
 
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.summary = "Converts wikipedia urls into simple text without any annoying references"
+  spec.description = "Wikipedia articles are infamous for being heavily referenced. One article could all of a sudden end up being a rabbit hole where you start clicking on other links and might soon get lost in the process. This ruby script converts your wikipedia url into simple text. You will have all that you need without any references. Removing references also comes in handy when you are plugging this into any text-to-audio converter."
+  spec.homepage = "https://github.com/shreyas314159/simple-wiki-converter"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
