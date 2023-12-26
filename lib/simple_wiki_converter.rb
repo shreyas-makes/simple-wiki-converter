@@ -36,17 +36,26 @@ module SimpleWikiConverter
 end
 
 
-if __FILE__ == $0
-  def main
-    if ARGV.empty?
-      puts "Usage: simple_wiki_converter URL"
-      exit
-    end
 
-    url = ARGV[0]
-    scraper = SimpleWikiConverter::WikiScraper.new(url)
-    puts scraper.scrape
+def main
+  if ARGV.empty?
+    puts "Usage: simple_wiki_converter URL"
+    exit
   end
 
-  main
+  url = ARGV[0]
+  scraper = SimpleWikiConverter::WikiScraper.new(url)
+  scraped_content = scraper.scrape
+
+  # Define the filename
+  filename = "scraped_content.txt"
+
+  # Write to the file
+  File.open(filename, "w") do |file|
+    file.write(scraped_content)
+  end
+
+  puts "Scraped content saved to #{filename}"
 end
+
+main if __FILE__ == $0
